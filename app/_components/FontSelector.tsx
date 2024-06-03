@@ -64,22 +64,28 @@ export default function App() {
           className=" body-m font-bold hover:bg-transparent focus:bg-transparent active:bg-transparent dark:hover:text-primary-purple dark:hover:bg-transparent dark:focus:bg-transparent dark:active:bg-transparent "
           key="sans"
           variant="light"
+          textValue="sans"
+          classNames={{
+            base: 'text-red-900',
+          }}
         >
-          Sans Serif
+          <span className="body-m">Sans Serif</span>
         </DropdownItem>
         <DropdownItem
           className="hover:bg-transparent focus:bg-transparent active:bg-transparent dark:hover:bg-transparent dark:hover:text-primary-purple dark:focus:bg-transparent dark:active:bg-transparent font-bold text-custom-body-m"
           key="serif"
           variant="light"
+          textValue="serif"
         >
-          Serif
+          <span className="body-m">Serif</span>
         </DropdownItem>
         <DropdownItem
           className="hover:bg-transparent focus:bg-transparent active:bg-transparent dark:hover:bg-transparent dark:hover:text-primary-purple dark:focus:bg-transparent dark:active:bg-transparent font-bold text-custom-body-m"
           key="mono"
           variant="light"
+          textValue="mono"
         >
-          Mono
+          <span className="body-m">Mono</span>
         </DropdownItem>
       </DropdownMenu>
     </Dropdown>

@@ -1,8 +1,9 @@
 import { useSearchParams } from 'next/navigation';
 import CardHeader from '../_components/CardHeader';
 import getWord from '../_services/data-service';
+import { GetStaticProps } from 'next';
 
-export default async function Home() {
+export default async function Home({}) {
   const data = await getWord('keyboard');
   const phonetic = data[0].phonetics.find(
     (phonetic) => phonetic.text && phonetic.audio

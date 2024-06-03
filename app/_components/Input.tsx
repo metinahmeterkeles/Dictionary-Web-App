@@ -1,20 +1,34 @@
-import { ForwardedRef, InputHTMLAttributes, forwardRef } from 'react';
+'use client';
 
-const Input = forwardRef<
-  HTMLInputElement,
-  InputHTMLAttributes<HTMLInputElement>
->((props, ref) => {
+import Image from 'next/image';
+
+import { useFormStatus } from 'react-dom';
+import searchicon from '@/public/icon-search.svg';
+import { FaSpinner } from 'react-icons/fa';
+
+const Input = () => {
+  const { pending } = useFormStatus();
+
   return (
-    <input
-      type="text"
-      ref={ref}
-      placeholder="Search for any word..."
-      className="bg-primary-F4 w-full outline-none px-6 py-5 rounded-2xl text-primary-2D body-m-sansserif font-bold placeholder:font-bold placeholder:text-[20px] focus-visible:outline-1 focus-visible:outline-primary-purple dark:text-white dark:bg-primary-1F"
-      {...props}
-    />
+    <div className="relative">
+      <div className="absolute inset-y-0 end-0 flex items-center pe-6 pointer-events-none">
+        {pending ? (
+          <FaSpinner className="animate-spin text-primary-purple" />
+        ) : (
+          <Image src={searchicon} alt="Search Icon" />
+        )}
+      </div>
+      <input
+        type="text"
+        name="word"
+        disabled={pending}
+        placeholder="Search for any word..."
+        className="bg-primary-F4 w-full outline-none px-6 py-5 rounded-2xl text-primary-2D body-m-sansserif font-bold placeholder:font-bold placeholder:text-[20px] focus-visible:outline-1 focus-visible:outline-primary-purple dark:text-white dark:bg-primary-1F"
+      />
+    </div>
   );
-});
+};
 
-Input.displayName = 'Input'; // forwardRef kullanırken bileşen adı belirtmek iyi bir pratiktir
+Input.displayName = 'Input';
 
 export default Input;

@@ -1,0 +1,28 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.heading-l {
+  @apply text-custom-heading-l leading-custom-line-heading-l;
+}
+
+.heading-m {
+  @apply text-custom-heading-m leading-custom-line-heading-m;
+}
+
+.heading-s {
+  @apply text-custom-heading-s leading-custom-line-heading-s;
+}
+
+.body-m {
+  @apply text-custom-body-m leading-custom-line-body-m !important;
+}
+
+.body-s {
+  @apply text-custom-body-s leading-custom-line-body-s;
+}
+
+.dark {
+  background-color: #050505;
+  color: #fff;
+}

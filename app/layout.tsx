@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import { Inter, Lora, Inconsolata } from 'next/font/google';
 import '@/app/_styles/globals.css';
-import { Providers } from '@/app/providers';
+import { Providers } from './providers';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -32,11 +32,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body
-        className={`${inter.variable} ${lora.variable} ${inconsolata.variable} antialiased  min-h-screen flex font-sans `}
+        className={`${inter.variable} ${lora.variable} ${inconsolata.variable} antialiased min-h-screen`}
       >
-        {children}
+        <Providers>{children}</Providers>
       </body>
     </html>
   );

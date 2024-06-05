@@ -1,9 +1,11 @@
 'use client';
 
+import { useTheme } from 'next-themes';
 import { ChangeEvent, useEffect, useState } from 'react';
 
 export default function Switch() {
   const [isChecked, setIsChecked] = useState<boolean>(false);
+  const { theme, setTheme } = useTheme();
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>): void => {
     setIsChecked(event.target.checked);
@@ -11,11 +13,11 @@ export default function Switch() {
 
   useEffect(() => {
     if (isChecked) {
-      document.documentElement.classList.add('dark');
+      setTheme('dark');
     } else {
-      document.documentElement.classList.remove('dark');
+      setTheme('light');
     }
-  }, [isChecked]);
+  }, [isChecked, setTheme]);
 
   return (
     <label className="inline-flex items-center cursor-pointer">

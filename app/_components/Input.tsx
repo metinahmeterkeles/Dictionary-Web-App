@@ -29,6 +29,4 @@ const Input = () => {
   );
 };
 
-Input.displayName = 'Input';
-
 export default Input;

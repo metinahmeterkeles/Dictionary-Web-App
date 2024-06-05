@@ -1,23 +1,24 @@
+'use client';
+
 import { redirect } from 'next/navigation';
 import Input from './Input';
 import { revalidatePath } from 'next/cache';
-
-interface FormResult {
-  redirect?: string;
-  error?: string;
-}
+import { useState } from 'react';
 
 export default function FormInput() {
+  const [error, setError] = useState<string>();
   async function createWord(formData: FormData) {
-    'use server';
     const word = formData.get('word') as string;
-    revalidatePath('/word');
-    redirect(`/word?query=${word}`);
+    if (word === '') {
+      setError('Whoops, can’t be empty…');
+    } else {
+      redirect(`/word?query=${word}`);
+    }
   }
 
   return (
     <form action={createWord}>
-      <Input />
+      <Input error={error!} />
     </form>
   );
 }

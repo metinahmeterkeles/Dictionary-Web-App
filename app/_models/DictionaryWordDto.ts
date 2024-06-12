@@ -1,32 +1,3 @@
-// export default interface ResponseWord {
-//   word: string;
-//   phonetics: [
-//     {
-//       audio: string;
-//       sourceUrl: string;
-//       license: {
-//         name: string;
-//         url: string;
-//       };
-//     },
-//     {
-//       text: string;
-//       audio: string;
-//       sourceUrl: string;
-//       license: {
-//         name: string;
-//         url: string;
-//       };
-//     },
-//     {
-//       text: string;
-//       audio: string;
-//     }
-//   ];
-// }
-
-// types.ts
-
 export interface Phonetic {
   text: string;
   audio: string;

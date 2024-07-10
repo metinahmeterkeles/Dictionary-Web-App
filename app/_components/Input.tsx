@@ -2,8 +2,8 @@
 
 import Image from 'next/image';
 
-import { useFormStatus } from 'react-dom';
 import searchicon from '@/public/icon-search.svg';
+import { useFormStatus } from 'react-dom';
 import { FaSpinner } from 'react-icons/fa';
 
 const Input = ({ error }: { error: string }) => {
@@ -19,6 +19,7 @@ const Input = ({ error }: { error: string }) => {
             <Image src={searchicon} alt="Search Icon" />
           )}
         </div>
+
         <input
           type="text"
           name="word"

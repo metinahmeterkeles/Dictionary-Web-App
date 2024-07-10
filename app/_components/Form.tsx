@@ -1,9 +1,9 @@
 'use client';
 
 import { redirect } from 'next/navigation';
-import Input from './Input';
-import { revalidatePath } from 'next/cache';
 import { useState } from 'react';
+
+import Input from './Input';
 
 export default function FormInput() {
   const [error, setError] = useState<string>();

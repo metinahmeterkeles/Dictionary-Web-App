@@ -4,18 +4,26 @@ import { useTheme } from 'next-themes';
 import { ChangeEvent, useEffect, useState } from 'react';
 
 export default function Switch() {
-  const [isChecked, setIsChecked] = useState<boolean>(false);
+  const [isChecked, setIsChecked] = useState<boolean>(function () {
+    return localStorage.getItem('mode') === 'dark' ? true : false;
+  });
+  console.log(isChecked);
   const { theme, setTheme } = useTheme();
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>): void => {
+    if (event.target.checked) {
+      localStorage.setItem('mode', 'dark');
+    } else {
+      localStorage.setItem('mode', 'light');
+    }
     setIsChecked(event.target.checked);
   };
 
   useEffect(() => {
     if (isChecked) {
-      setTheme('dark');
+      setTheme(localStorage.getItem('mode')!);
     } else {
-      setTheme('light');
+      setTheme(localStorage.getItem('mode')!);
     }
   }, [isChecked, setTheme]);
 

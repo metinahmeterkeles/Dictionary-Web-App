@@ -19,6 +19,7 @@ const config: Config = {
       },
       fontSize: {
         'custom-heading-l': '64px',
+        'custom-heading-l-mobile': '32px',
         'custom-heading-m': '24px',
         'custom-heading-s': '20px',
         'custom-body-m': '18px',

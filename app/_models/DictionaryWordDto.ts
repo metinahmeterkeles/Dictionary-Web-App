@@ -11,6 +11,7 @@ export interface Definition {
 export interface Meaning {
   partOfSpeech: string;
   definitions: Definition[];
+  synonyms: string[];
 }
 
 export interface License {

@@ -6,6 +6,10 @@
   @apply text-custom-heading-l leading-custom-line-heading-l;
 }
 
+.heading-l-mobile {
+  @apply text-custom-heading-l-mobile leading-custom-line-heading-l;
+}
+
 .heading-m {
   @apply text-custom-heading-m leading-custom-line-heading-m;
 }

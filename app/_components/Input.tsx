@@ -24,7 +24,7 @@ const Input = ({ error }: { error: string }) => {
           name="word"
           disabled={pending}
           placeholder="Search for any word..."
-          className={`bg-primary-F4 w-full outline-none px-6 py-5 rounded-2xl text-primary-2D body-m-sansserif font-bold placeholder:font-bold placeholder:text-[20px] focus-visible:outline-1  dark:text-white dark:bg-primary-1F ${
+          className={`bg-primary-F4 w-full outline-none px-6 py-5 rounded-2xl text-primary-2D body-m font-bold placeholder:font-bold placeholder:text-[20px] focus-visible:outline-1  dark:text-white dark:bg-primary-1F ${
             error
               ? 'border-primary-orange border'
               : 'focus-visible:outline-primary-purple'

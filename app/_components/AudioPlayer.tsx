@@ -18,9 +18,14 @@ const AudioPlayer: React.FC<AudioPlayerProps> = ({ src }) => {
   };
 
   return (
-    <div className="flex items-center">
+    <div className="flex items-center justify-center">
       <button onClick={handlePlay}>
-        <Image src={icon_play} alt="İcon Play" priority={true} />
+        <Image
+          src={icon_play}
+          alt="İcon Play"
+          priority={true}
+          className=" w-12 h-12 md:w-[75px] md:h-[75px]"
+        />
       </button>
       <audio ref={audioRef} src={src} />
     </div>

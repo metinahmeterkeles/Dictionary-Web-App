@@ -26,7 +26,7 @@ export default async function Home({
             audio={phonetic?.audio!}
           />
           {meanings.map((meaning, index) => {
-            return <CardWord key={index} meaning={meaning} />;
+            return <CardWord key={`${query}`} meaning={meaning} />;
           })}
         </div>
       </>

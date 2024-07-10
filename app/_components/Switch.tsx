@@ -4,28 +4,29 @@ import { useTheme } from 'next-themes';
 import { ChangeEvent, useEffect, useState } from 'react';
 
 export default function Switch() {
-  const [isChecked, setIsChecked] = useState<boolean>(function () {
-    return localStorage.getItem('mode') === 'dark' ? true : false;
-  });
-  console.log(isChecked);
+  const [isChecked, setIsChecked] = useState<boolean>(false);
   const { theme, setTheme } = useTheme();
 
-  const handleChange = (event: ChangeEvent<HTMLInputElement>): void => {
-    if (event.target.checked) {
-      localStorage.setItem('mode', 'dark');
-    } else {
-      localStorage.setItem('mode', 'light');
-    }
-    setIsChecked(event.target.checked);
-  };
-
   useEffect(() => {
-    if (isChecked) {
-      setTheme(localStorage.getItem('mode')!);
+    // Sayfa yüklendiğinde localStorage'dan tema modunu kontrol et
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme) {
+      setIsChecked(savedTheme === 'dark');
+      setTheme(savedTheme);
     } else {
-      setTheme(localStorage.getItem('mode')!);
+      // Varsayılan olarak light tema kullan
+      setTheme('light');
     }
-  }, [isChecked, setTheme]);
+  }, [setTheme]);
+
+  const handleChange = (event: ChangeEvent<HTMLInputElement>): void => {
+    const checked = event.target.checked;
+    setIsChecked(checked);
+    // localStorage'da tema modunu güncelle
+    localStorage.setItem('theme', checked ? 'dark' : 'light');
+    // Tema modunu güncelle
+    setTheme(checked ? 'dark' : 'light');
+  };
 
   return (
     <label className="inline-flex items-center cursor-pointer">
